@@ -1,0 +1,12 @@
+{
+    "name": "mi-app-web",
+    "version": "1.0.0",
+    "description": "Cualquier cosa para probar Docker",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
