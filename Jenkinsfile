@@ -8,6 +8,19 @@ pipeline {
             }
         }
 
+        stage('Security Scan') {
+            steps {
+                sh '''
+                    docker run --rm \
+                      -v /var/run/docker.sock:/var/run/docker.sock \
+                      aquasec/trivy \
+                      image --severity HIGH,CRITICAL \
+                      --exit-code 1 \
+                      mi-app-web:${BUILD_NUMBER}
+                '''
+            }
+        }
+
         stage('Test') {
             steps {
                 sh '''
